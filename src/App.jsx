@@ -3,6 +3,9 @@ import Banner from "./components/Banner";
 import Stats from "./components/Stats";
 import ProductsSection from "./sections/ProductsSection";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 function App() {
   const [activeTab, setActiveTab] = useState("products");
@@ -10,16 +13,24 @@ function App() {
 
   const handleAddToCart = (product) => {
     setCart([...cart, product]);
+
+    toast.success(`${product.name} added to cart`);
   };
 
   const handleRemoveItem = (id) => {
+    const product = cart.find((item) => item.id === id);
+
     const remainingItems = cart.filter((item) => item.id !== id);
 
     setCart(remainingItems);
+
+    toast.error(`${product.name} removed`);
   };
 
   const handleCheckout = () => {
     setCart([]);
+
+    toast.success("Order placed successfully!");
   };
 
   return (
@@ -34,6 +45,16 @@ function App() {
         handleAddToCart={handleAddToCart}
         handleRemoveItem={handleRemoveItem}
         handleCheckout={handleCheckout}
+      />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="light"
       />
     </>
   );
