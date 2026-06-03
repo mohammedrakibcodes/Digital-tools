@@ -7,9 +7,21 @@ import { useState } from "react";
 function App() {
   const [activeTab, setActiveTab] = useState("products");
   const [cart, setCart] = useState([]);
+
   const handleAddToCart = (product) => {
     setCart([...cart, product]);
   };
+
+  const handleRemoveItem = (id) => {
+    const remainingItems = cart.filter((item) => item.id !== id);
+
+    setCart(remainingItems);
+  };
+
+  const handleCheckout = () => {
+    setCart([]);
+  };
+
   return (
     <>
       <Navbar cart={cart} />
@@ -20,6 +32,8 @@ function App() {
         setActiveTab={setActiveTab}
         cart={cart}
         handleAddToCart={handleAddToCart}
+        handleRemoveItem={handleRemoveItem}
+        handleCheckout={handleCheckout}
       />
     </>
   );
