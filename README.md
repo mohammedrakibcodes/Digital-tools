@@ -99,18 +99,6 @@ npm run build
 npm run preview
 ```
 
----
-
-## Challenge Features Implemented
-
-- React Toastify integration
-- Dynamic cart count
-- Remove product functionality
-- Total price calculation
-- Checkout functionality
-- Responsive layout
-
----
 
 ## Author
 
