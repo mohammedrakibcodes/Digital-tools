@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import Steps from "./components/Steps";
+import Pricing from "./components/Pricing";
 
 function App() {
   const [activeTab, setActiveTab] = useState("products");
@@ -58,6 +59,7 @@ function App() {
         theme="light"
       />
       <Steps />
+      <Pricing />
     </>
   );
 }
