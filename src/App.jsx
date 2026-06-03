@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import Steps from "./components/Steps";
 import Pricing from "./components/Pricing";
 import CTA from "./components/CTA";
+import Footer from "./components/Footer";
 
 function App() {
   const [activeTab, setActiveTab] = useState("products");
@@ -52,6 +53,7 @@ function App() {
       <Steps />
       <Pricing />
       <CTA />
+      <Footer />
 
       <ToastContainer
         position="top-right"
