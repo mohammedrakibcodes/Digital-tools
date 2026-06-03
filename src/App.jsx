@@ -6,6 +6,7 @@ import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import Steps from "./components/Steps";
 
 function App() {
   const [activeTab, setActiveTab] = useState("products");
@@ -56,6 +57,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
+      <Steps />
     </>
   );
 }
