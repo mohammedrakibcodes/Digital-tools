@@ -2,7 +2,12 @@ import products from "../data/products.json";
 import ProductCard from "../components/ProductCard";
 import { BsCartPlus } from "react-icons/bs";
 
-const ProductsSection = ({ activeTab, setActiveTab, cart }) => {
+const ProductsSection = ({
+  activeTab,
+  setActiveTab,
+  cart,
+  handleAddToCart,
+}) => {
   return (
     <section className="max-w-7xl mx-auto px-4 lg:px-8 py-16">
       <div className="text-center">
@@ -45,7 +50,12 @@ const ProductsSection = ({ activeTab, setActiveTab, cart }) => {
       {activeTab === "products" ? (
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              cart={cart}
+              handleAddToCart={handleAddToCart}
+            />
           ))}
         </div>
       ) : (

@@ -7,15 +7,19 @@ import { useState } from "react";
 function App() {
   const [activeTab, setActiveTab] = useState("products");
   const [cart, setCart] = useState([]);
+  const handleAddToCart = (product) => {
+    setCart([...cart, product]);
+  };
   return (
     <>
-      <Navbar />
+      <Navbar cart={cart} />
       <Banner />
       <Stats />
       <ProductsSection
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         cart={cart}
+        handleAddToCart={handleAddToCart}
       />
     </>
   );

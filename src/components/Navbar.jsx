@@ -1,6 +1,6 @@
 import cartIcon from "../assets/products/shopping-cart.png";
 import { GiHamburgerMenu } from "react-icons/gi";
-const Navbar = () => {
+const Navbar = ({ cart }) => {
   return (
     <nav className="border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
@@ -46,7 +46,7 @@ const Navbar = () => {
               />
 
               <span className="absolute -top-2 -right-2 bg-purple-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                0
+                {cart.length}
               </span>
             </div>
 

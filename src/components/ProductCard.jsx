@@ -1,7 +1,9 @@
 import { FaCheck } from "react-icons/fa";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, handleAddToCart, cart }) => {
   const { image, name, description, price, period, tag, features } = product;
+
+  const isAdded = cart.some((item) => item.id === product.id);
 
   const badgeColor = {
     "Best Seller": "badge-success",
@@ -56,22 +58,32 @@ const ProductCard = ({ product }) => {
         </ul>
 
         <button
-          className="
-            btn
-            mt-4
-            w-full
-            rounded-full
-            border-none
-            text-white
-            bg-gradient-to-r
-            from-purple-600
-            to-fuchsia-500
-            hover:scale-[1.02]
-            hover:shadow-lg
-            transition-all duration-300
-          "
+          onClick={() => handleAddToCart(product)}
+          disabled={isAdded}
+          className={`
+    btn
+    mt-4
+    w-full
+    rounded-full
+    border-none
+    text-white
+    transition-all duration-500
+
+    ${
+      isAdded
+        ? "bg-green-500 hover:bg-green-500"
+        : "bg-gradient-to-r from-purple-600 to-fuchsia-500 hover:scale-[1.02]"
+    }
+  `}
         >
-          Buy Now
+          {isAdded ? (
+            <span className="flex items-center gap-2">
+              <FaCheck />
+              Added To Cart
+            </span>
+          ) : (
+            "Buy Now"
+          )}
         </button>
       </div>
     </div>
