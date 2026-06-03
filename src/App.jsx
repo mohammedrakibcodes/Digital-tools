@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import Steps from "./components/Steps";
 import Pricing from "./components/Pricing";
+import CTA from "./components/CTA";
 
 function App() {
   const [activeTab, setActiveTab] = useState("products");
@@ -48,6 +49,9 @@ function App() {
         handleRemoveItem={handleRemoveItem}
         handleCheckout={handleCheckout}
       />
+      <Steps />
+      <Pricing />
+      <CTA />
 
       <ToastContainer
         position="top-right"
@@ -58,8 +62,6 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <Steps />
-      <Pricing />
     </>
   );
 }
